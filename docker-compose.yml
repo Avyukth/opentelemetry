@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   todo:
+    container_name: todo-service
     build: 
       context: .
       dockerfile: dockerfile.todo-service
@@ -10,6 +11,7 @@ services:
     ports:
       - 8081:8080
   auth:
+    container_name: auth-service
     build: 
       context: .
       dockerfile: dockerfile.auth-service
