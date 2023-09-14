@@ -18,10 +18,12 @@ services:
     volumes:
       - .:/usr/src/app:rw
   redis:
+    container_name: redis-service
     image: redis:latest
     ports:
       - '6379:6379'
   jaeger:
+    container_name: jaeger-service
     image: jaegertracing/all-in-one
     ports:
         - 4318
@@ -29,6 +31,7 @@ services:
     environment:
         COLLECTOR_OTLP_ENABLED: true
   prometheus:
+      container_name: prometheus-service
       image: prom/prometheus
       command:
         - '--config.file=/etc/prometheus/prometheus.yml'
